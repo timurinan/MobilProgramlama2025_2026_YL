@@ -1,50 +1,42 @@
 package com.example.uygulama2;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager2.widget.ViewPager2;
-
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.FrameLayout;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    ViewPager2 vp2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+        Button btn1=findViewById(R.id.btn_fragment1);
+        Button btn2=findViewById(R.id.btn_fragment2);
 
-        vp2=findViewById(R.id.view_pager);
-
-        Hesap hesap1=new Hesap("Timur İnan","TL",10000);
-        Hesap hesap2=new Hesap("Ahmet Yalnız","Euro",500);
-        Hesap hesap3=new Hesap("Sevgi Köroğlu","Dolar",1000);
-        Hesap hesap4=new Hesap("Hande Müftüoğlu","Altın",20);
-        Hesap hesap5=new Hesap("Görkem Kaynar","Fon",200000);
-
-        Fragment_Hesap fragment_hesap1=new Fragment_Hesap();
-        fragment_hesap1.setHesap(hesap1);
-
-        Fragment_Hesap fragment_hesap2=new Fragment_Hesap();
-        fragment_hesap2.setHesap(hesap2);
-
-        Fragment_Hesap fragment_hesap3=new Fragment_Hesap();
-        fragment_hesap3.setHesap(hesap3);
-
-        Fragment_Hesap fragment_hesap4=new Fragment_Hesap();
-        fragment_hesap4.setHesap(hesap4);
-
-        Fragment_Hesap fragment_hesap5=new Fragment_Hesap();
-        fragment_hesap5.setHesap(hesap5);
-
-        Fragment_Adapter fa=new Fragment_Adapter(getSupportFragmentManager(),getLifecycle());
-
-        fa.addHesap(fragment_hesap1);
-        fa.addHesap(fragment_hesap2);
-        fa.addHesap(fragment_hesap3);
-        fa.addHesap(fragment_hesap4);
-        fa.addHesap(fragment_hesap5);
-
-        vp2.setAdapter(fa);
-
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getSupportFragmentManager().beginTransaction().setReorderingAllowed(true).add(R.id.framelayout,new Fragment1()).commit();
+            }
+        });
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getSupportFragmentManager().beginTransaction().setReorderingAllowed(true).replace(R.id.framelayout,new Fragment2()).commit();
+            }
+        });
     }
 }

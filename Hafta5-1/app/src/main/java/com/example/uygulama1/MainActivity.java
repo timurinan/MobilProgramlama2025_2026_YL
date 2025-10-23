@@ -1,44 +1,61 @@
 package com.example.uygulama1;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.FrameLayout;
+import android.widget.Toast;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    FrameLayout fl;
-    Button buton1,buton2;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Toast.makeText(this, "OnCreate Çalıştı..", Toast.LENGTH_SHORT).show();
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-
-        fl=findViewById(R.id.frame_layout);
-
-        buton1=findViewById(R.id.button);
-        buton2=findViewById(R.id.button2);
-
-        getSupportFragmentManager()
-                .beginTransaction()
-                .setReorderingAllowed(true)
-                .add(R.id.frame_layout,new Fragment1(),null)
-                .commit();
-
-        buton1.setOnClickListener(v -> değiştir(new Fragment1()));
-        buton2.setOnClickListener(v -> değiştir(new Fragment2()));
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+        Button buton=findViewById(R.id.button);
+        buton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this, IkinciActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
-    public void değiştir(Fragment fr){
-        getSupportFragmentManager()
-                .beginTransaction()
-                .setReorderingAllowed(true)
-                .replace(R.id.frame_layout,fr,null)
-                .commit();
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Toast.makeText(this, "OnResume Çalıştı...", Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Toast.makeText(this, "OnStart Metotu Çalıştı...", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Toast.makeText(this, "OnStop Memtotu Çalıştı", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Toast.makeText(this, "OnRestart Metotu Çalıştı", Toast.LENGTH_SHORT).show();
+    }
 }
