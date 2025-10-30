@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getSupportFragmentManager().beginTransaction().setReorderingAllowed(true).add(R.id.framelayout,new Fragment1()).commit();
+                getSupportFragmentManager().beginTransaction().setReorderingAllowed(true).replace(R.id.framelayout,new Fragment1()).commit();
             }
         });
         btn2.setOnClickListener(new View.OnClickListener() {
