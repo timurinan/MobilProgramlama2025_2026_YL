@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LogInActivity">
+
+    <EditText
+        android:id="@+id/txt_mail_signin"
+        android:layout_width="310dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="181dp"
+        android:layout_marginBottom="55dp"
+        android:drawableStart="@drawable/mail_ikon"
+        android:ems="10"
+        android:hint="Mailinizi Giriniz"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/txt_sifre_signin1"
+        app:layout_constraintStart_toStartOf="@+id/txt_sifre_signin1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txt_sifre_signin1"
+        android:layout_width="313dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="57dp"
+        android:drawableStart="@drawable/sifre_ikon"
+        android:ems="10"
+        android:hint="Şifrenizi Giriniz"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/txt_sifre_signin2"
+        app:layout_constraintStart_toStartOf="@+id/txt_sifre_signin2"
+        app:layout_constraintTop_toBottomOf="@+id/txt_mail_signin" />
+
+    <EditText
+        android:id="@+id/txt_sifre_signin2"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="57dp"
+        android:drawableStart="@drawable/sifre_ikon"
+        android:ems="10"
+        android:hint="Şifrenizi Giriniz"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/btn_kayitol_signin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_sifre_signin1" />
+
+    <Button
+        android:id="@+id/btn_kayitol_signin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="190dp"
+        android:text="Kayıt Ol"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_sifre_signin2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
