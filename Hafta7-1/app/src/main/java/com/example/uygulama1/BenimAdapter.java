@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.uygulama2.R;
+
 import java.util.ArrayList;
 
 public class BenimAdapter extends RecyclerView.Adapter<BenimAdapter.ViewHolder> {

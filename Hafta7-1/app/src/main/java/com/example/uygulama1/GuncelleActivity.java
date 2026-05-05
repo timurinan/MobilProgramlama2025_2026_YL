@@ -9,6 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.uygulama2.R;
+
 public class GuncelleActivity extends AppCompatActivity {
 
     TextView txt_adsoyad,txt_mail,txt_telefon;

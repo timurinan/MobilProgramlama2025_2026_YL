@@ -17,6 +17,11 @@ public class BenimAdapter extends RecyclerView.Adapter<BenimAdapter.BenimViewHol
     ArrayList<Müşteri> müşterler=new ArrayList<Müşteri>();
     LayoutInflater inflater;
 
+    public void setFiltreMüşteriler(ArrayList<Müşteri> filtreMüşteriler){
+        müşterler=filtreMüşteriler;
+        notifyDataSetChanged();
+    }
+
     public BenimAdapter(ArrayList<Müşteri> müşterler, LayoutInflater inflater) {
         this.müşterler = müşterler;
         this.inflater = inflater;

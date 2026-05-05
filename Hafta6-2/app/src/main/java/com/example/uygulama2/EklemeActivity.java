@@ -62,6 +62,8 @@ public class EklemeActivity extends AppCompatActivity {
                         Müşteri müşteri=new Müşteri(txt_adsoyad_ekleme.getText().toString(),txt_mail_ekleme.getText().toString(),txt_telefon_ekleme.getText().toString());
                         Toast.makeText(EklemeActivity.this, "Müşteri başarıyla oluşturuldu...", Toast.LENGTH_SHORT).show();
                         Intent intent=new Intent(EklemeActivity.this, MainActivity.class);
+                        intent.putExtra("yenimüşteri",müşteri);
+                        intent.putExtra("id",1);
                         startActivity(intent);
                     }
                 }

@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
@@ -14,6 +15,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Locale;
 
 public class EkleActivity extends AppCompatActivity {
 
@@ -29,7 +32,6 @@ public class EkleActivity extends AppCompatActivity {
         txt_adsoyad_ekle=findViewById(R.id.txt_adsoyad_ekle);
         txt_mail_ekle=findViewById(R.id.txt_mail_ekle);
         txt_telefon_ekle=findViewById(R.id.txt_telefon_ekle);
-
         btn_ekle=findViewById(R.id.button);
 
         btn_ekle.setOnClickListener(new View.OnClickListener() {

@@ -12,6 +12,8 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.uygulama2.R;
+
 public class EkleActivity extends AppCompatActivity {
 
     TextView txt_adsoyad,txt_mail,txt_telefon;

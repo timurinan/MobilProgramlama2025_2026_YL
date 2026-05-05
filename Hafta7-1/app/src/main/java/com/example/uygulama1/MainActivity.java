@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.uygulama2.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -20,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Müşteri> müşteriler=new ArrayList<Müşteri>();
     Veritabani_Islemleri vi=new Veritabani_Islemleri(MainActivity.this);
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
